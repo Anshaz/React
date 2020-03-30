@@ -3,8 +3,6 @@ import logo from './logo.svg';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import Menu from './components/MenuComponent';
 import { DISHES } from './shared/dishes';
-import './App.css';
-
 
 class App extends Component {
 
@@ -12,6 +10,7 @@ class App extends Component {
         super(props);
         this.state = {
             dishes: DISHES
+      
         };
     }
 
@@ -25,7 +24,7 @@ class App extends Component {
                 </Navbar>
 
                 <Menu dishes={this.state.dishes} />
-            </div>
+</div>
         );
     }
 }
