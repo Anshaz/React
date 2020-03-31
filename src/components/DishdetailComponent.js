@@ -45,7 +45,7 @@ class Dishdetail extends Component {
             )
         })
         return (
-            <div className='col-12 col-md-5 m-1'>
+            <div className='col-12 col-md-5'>
                 <h3> Comments </h3>
                 <ol className='list-unstyled'>
                     {commentPlaced}
@@ -65,11 +65,12 @@ class Dishdetail extends Component {
         const dishItem = this.renderDishes(dish)
         const commentItem = this.renderComments(dish.comments)
         return (
-            
+            <div className="container">
             <div className='row'>
+                
                 {dishItem}
                 {commentItem}
-                </div>
+                </div></div>
         )
     }
 }
