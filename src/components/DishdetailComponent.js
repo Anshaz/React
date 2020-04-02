@@ -5,6 +5,7 @@ import {
     CardTitle
 } from 'reactstrap';
 
+
 function RenderDish({ dish }) {
         if (dish == null)
         {
@@ -57,7 +58,7 @@ function RenderComments({ comments }) {
 
 const DishDetail = (props) => {
 
-    if (props.dish != null) {
+    if (props.dish != null) 
         return (
             <div className="container">
                 <div className='row'>
@@ -66,7 +67,7 @@ const DishDetail = (props) => {
                     <RenderComments comments={(props.dish.comments)} />
                   </div></div>);
 
-    }
+    else
             return (
 
             <div></div>)
