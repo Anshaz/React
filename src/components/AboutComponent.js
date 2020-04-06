@@ -1,7 +1,10 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Loading } from './LoadingComponent';
+import { Fade, Stagger } from "react-animation-components";
 
+import { baseUrl } from '../shared/baseUrl';
 
 
 /*Implemented a new <RenderLeader> functional component in your application.*/
@@ -13,7 +16,7 @@ import { Link } from 'react-router-dom';
         <div className="col-12 mt-2" key={leader.id}>
             <Media tag="list">
                 <Media left middle>
-                    <Media object src={leader.image} alt={leader.name} />
+                    <Media object src={baseUrl + leader.image} alt={leader.name} />
                 </Media>
                 <Media body className="col-12 ml-5">
                     <Media heading>{leader.name}</Media>
@@ -25,16 +28,41 @@ import { Link } from 'react-router-dom';
     );
 }
 
-
+/*Task 3: stagger and fade has been added here*/
 
 function About(props) {
 
-    const leaders = props.leaders.map((leader) => {
-        return (
-            <RenderLeader leader={leader} />
-        );
+    const leaders = props.leaders.leaders.map((leader) => {
+        return (<Stagger in>
+            <Fade in key={leader.id}>
+                <RenderLeader key={leader.id} leader={leader} />
+            </Fade>
+        
+        </Stagger>
+        )
     });
 
+
+    if (props.leaders.isLoading) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <Loading />
+                </div>
+            </div>
+        );
+    }
+    else if (props.leaders.errMess) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <h4>{props.leaders.errMess}</h4>
+                </div>
+            </div>
+        );
+
+    }
+    else
 
     return (
         <div className="container">
@@ -93,6 +121,8 @@ function About(props) {
                 <div className="col-12">
                     <Media list>
                         {leaders}
+                        {leaders.isLoading}
+                        {leaders.errMess}
                     </Media>
                 </div>
             </div>

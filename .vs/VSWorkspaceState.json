@@ -6,8 +6,9 @@
     "\\public\\assets\\images",
     "\\src",
     "\\src\\components",
+    "\\src\\redux",
     "\\src\\shared"
   ],
-  "SelectedNode": "\\src\\components\\MenuComponent.js",
+  "SelectedNode": "\\src\\components\\AboutComponent.js",
   "PreviewInSolutionExplorer": false
 }
