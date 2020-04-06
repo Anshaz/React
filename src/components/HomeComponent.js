@@ -10,11 +10,7 @@ function RenderCard({ item, isLoading, errMess }) {
             <Loading />
         );
     }
-    else if (item == null) {
-        return (
-          ( <div></div>)
-        );
-    }
+
 
     else if (errMess) {
         return (
